@@ -1,0 +1,223 @@
+<section class="contact-page">
+   <div #reveal class="contact-hero reveal">
+    <span class="section-badge">
+      <i class="bi bi-chat-dots-fill"></i>
+      CONTACT
+      <l-dot-pulse size="45" speed="2.5" color="#8ef0ff"></l-dot-pulse>
+    </span>
+
+    <h1>Contactez-moi</h1>
+
+    <p>
+      Une question, une opportunité de stage, une alternance ou un projet ?
+      N'hésitez pas à me contacter. Je serai ravi d'échanger avec vous
+      et de participer à la réalisation de vos idées.
+    </p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="info-card">
+        <div class="icon-box">
+          <i class="bi bi-telephone-fill"></i>
+        </div>
+        <div class="info-content">
+          <h3>Téléphone</h3>
+          <h4>+223 73 81 01 02</h4>
+          <p>Disponible du lundi au samedi de 08h00 à 20h00.</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-box">
+          <i class="bi bi-envelope-fill"></i>
+        </div>
+        <div class="info-content">
+          <h3>Email</h3>
+          <h4>gaoussouthiero04@gmail.com</h4>
+          <p>Je réponds généralement en moins de 24 heures.</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-box">
+          <i class="bi bi-github"></i>
+        </div>
+        <div class="info-content">
+          <h3>GitHub</h3>
+          <h4>github.com/Kiassou</h4>
+          <p>Découvrez mes projets, mes expérimentations et mon code.</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-box">
+          <i class="bi bi-linkedin"></i>
+        </div>
+        <div class="info-content">
+          <h3>LinkedIn</h3>
+          <h4>linkedin.com/in/gaoussou-thiero-56138b318</h4>
+          <p>Connectons-nous pour discuter d'opportunités.</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-box">
+          <i class="bi bi-geo-alt-fill"></i>
+        </div>
+        <div class="info-content">
+          <h3>Localisation</h3>
+          <h4>Bamako, Mali</h4>
+          <p>Disponible pour des collaborations en présentiel ou à distance.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-area">
+      <div class="project-card">
+        <span class="project-tag">Collaboration</span>
+
+        <h2>Vous avez un projet en tête ?</h2>
+
+        <p>Chaque grand projet commence par une idée.</p>
+
+        <p>
+          Que vous soyez une entreprise, une startup, une association ou un particulier,
+          je serais ravi d'échanger avec vous afin de comprendre vos besoins
+          et de concevoir une solution moderne, performante et adaptée à vos objectifs.
+        </p>
+
+        <p>
+          Développement Web, Application Mobile, API REST, Tableau de bord, Site vitrine,
+          ou toute autre idée.
+        </p>
+
+        <button class="contact-btn" type="button" (click)="openContactModal()">
+          <i class="bi bi-send-fill"></i>
+          Discutons de votre projet
+        </button>
+      </div>
+
+      <div class="availability-card">
+        <div class="availability-header">
+          <div class="status-dot"></div>
+          <h3>Disponible actuellement</h3>
+        </div>
+
+        <p class="availability-text">
+          Ouvert à de nouvelles opportunités et collaborations. Je suis disponible
+          pour accompagner vos projets et relever de nouveaux défis techniques.
+        </p>
+
+        <div class="availability-items">
+          <span class="availability-badge"><i class="bi bi-briefcase-fill me-2"></i>Stage</span>
+          <span class="availability-badge"><i class="bi bi-cloud-fill me-2"></i>Cloud & DevOps</span>
+          <span class="availability-badge"><i class="bi bi-laptop-fill me-2"></i>Freelance</span>
+          <span class="availability-badge"><i class="bi bi-people-fill me-2"></i>Collaboration</span>
+        </div>
+
+        <div class="response-time">
+          <i class="bi bi-lightning-charge-fill"></i>
+          <div>
+            <strong>Temps de réponse</strong>
+            <p>Généralement moins de 24 heures</p>
+          </div>
+        </div>
+
+        <div class="available-status">
+          🟢 Actuellement ouvert aux opportunités
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-modal" *ngIf="showContactModal">
+  <div class="modal-overlay" (click)="closeContactModal()"></div>
+
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <div>
+        <span class="modal-badge">Nouveau projet</span>
+        <h2>Parlons de votre projet</h2>
+        <p>
+          Décrivez brièvement votre besoin.
+          Je reviendrai vers vous dans les meilleurs délais.
+        </p>
+      </div>
+
+      <button class="close-btn" type="button" (click)="closeContactModal()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <form *ngIf="!success" #contactForm="ngForm" (ngSubmit)="submitProject(contactForm)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nom complet</label>
+          <input
+            type="text"
+            name="fullname"
+            [(ngModel)]="project.fullname"
+            required
+            placeholder="votre nom complet">
+        </div>
+
+        <div class="form-group">
+          <label>Téléphone</label>
+          <input
+            type="text"
+            name="phone"
+            [(ngModel)]="project.phone"
+            required
+            placeholder="+223 XX XX XX XX">
+        </div>
+
+        <div class="form-group full-width">
+          <label>Adresse email</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="project.email"
+            required
+            placeholder="votre adresse email">
+        </div>
+
+        <div class="form-group full-width">
+          <label>Décrivez votre projet</label>
+          <textarea
+            rows="7"
+            name="message"
+            [(ngModel)]="project.message"
+            required
+            placeholder="Expliquez votre idée, les fonctionnalités souhaitées, les objectifs de votre projet..."></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="cancel-btn" (click)="closeContactModal()">Annuler</button>
+        <button type="submit" class="send-btn" [disabled]="loading">
+          <span *ngIf="!loading">
+            <i class="bi bi-send-fill"></i>
+            Envoyer la demande
+          </span>
+          <span *ngIf="loading">
+            <span class="spinner-border spinner-border-sm"></span>
+            Envoi...
+          </span>
+        </button>
+      </div>
+    </form>
+
+    <div class="success-box" *ngIf="success">
+      <div class="success-icon">
+        <i class="bi bi-check-circle-fill"></i>
+      </div>
+      <h2>Merci !</h2>
+      <p>Votre demande a bien été envoyée.</p>
+      <p>Je reviendrai vers vous dans les meilleurs délais.</p>
+      <p>Un email de confirmation vous sera envoyé automatiquement.</p>
+      <button class="send-btn" type="button" (click)="finish()">Fermer</button>
+    </div>
+  </div>
+</div>

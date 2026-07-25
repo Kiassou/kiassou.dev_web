@@ -1,0 +1,31 @@
+<div class="splash-page" [class.fade-out]="!isLoading">
+
+    <img
+        class="splash-image desktop-image"
+        src="assets/images/kiassou.dev_desktop.png"
+        alt="Desktop Splash">
+
+
+    <img
+        class="splash-image mobile-image"
+        src="assets/images/kiassou.dev_mobile.png"
+        alt="Mobile Splash">
+
+
+    <div class="light-overlay"></div>
+
+    <div class="loading-zone" *ngIf="isLoading">
+
+        <l-newtons-cradle
+            size="70"
+            speed="1.4"
+            color="#38bdf8">
+        </l-newtons-cradle>
+
+        <span class="loading-text">
+            Initialisation...
+        </span>
+
+    </div>
+
+</div>

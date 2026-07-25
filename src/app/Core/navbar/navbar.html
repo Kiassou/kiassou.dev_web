@@ -1,0 +1,73 @@
+<nav class="navbar custom-nav sticky-top" [class.scrolled]="isScrolled">
+  <div class="container nav-container">
+
+    <!-- LOGO & AVATAR (Gauche) -->
+    <a routerLink="/home" class="logo-wrapper">
+      <div class="logo-img-box">
+        <img src="assets/icons/kiassou.dev_logo.png" alt="Kiassou" class="nav-avatar">
+      </div>
+      <div class="logo-text">
+        kiassou<span>.dev</span>
+      </div>
+    </a>
+
+    <!-- MENU LINKS (Centre) -->
+    <ul class="nav-links" [class.active]="isMenuOpen">
+      <li>
+        <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+          <i class="bi bi-house-door"></i> Accueil
+        </a>
+      </li>
+      <li>
+        <a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">
+          <i class="bi bi-stack"></i> Projets
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">
+          <i class="bi bi-person"></i> À propos
+        </a>
+      </li>
+      <li>
+        <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">
+          <i class="bi bi-envelope-paper"></i> Contact
+        </a>
+      </li>
+
+      <!-- Réseaux sociaux intégrés au dropdown mobile -->
+      <li class="mobile-socials-item d-lg-none">
+        <div class="mobile-socials">
+          <a href="https://github.com/Kiassou" target="_blank" class="hover-github">
+            <i class="bi bi-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/gaoussou-thiero-56138b318/" target="_blank" class="hover-linkedin">
+            <i class="bi bi-linkedin"></i>
+          </a>
+        </div>
+      </li>
+    </ul>
+
+    <!-- RIGHT SIDE : Réseaux sociaux Desktop + Hamburger Mobile (Droite) -->
+    <div class="nav-right">
+      
+      <!-- Socials (Desktop uniquement) -->
+      <div class="social-icons d-none d-lg-flex">
+        <a href="https://github.com/Kiassou" target="_blank" class="hover-github" title="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/gaoussou-thiero-56138b318/" target="_blank" class="hover-linkedin" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+
+      <!-- Hamburger Button (Mobile) -->
+      <div class="hamburger" (click)="toggleMenu()" [class.open]="isMenuOpen" role="button" aria-label="Toggle navigation">
+        <div class="ham-box">
+          <div class="ham-inner"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</nav>
