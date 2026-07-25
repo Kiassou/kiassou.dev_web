@@ -15,9 +15,7 @@ Portfolio personnel développé avec **Angular**, mettant en avant mes compéten
 
 </div>
 
-<p align="center">
-  <img src="assets/icons/kiassou.dev_logo.png" width="200">
-</p>
+
 
 ---
 
